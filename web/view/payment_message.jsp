@@ -3,15 +3,18 @@
     Created on : Oct 9, 2014, 8:48:35 PM
     Author     : freddybeste
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Make a Payment</title>
-    </head>
-    <body>
-        <h2>Thank you for your payment!</h2>
-    </body>
+        <title>SDU: Payment</title>
+    <c:import url="header.jsp" />
+</head>
+<body>
+    <h2>Thank you for your payment!</h2>
+<c:import url="footer.jsp" />
+
+</body>
 </html>

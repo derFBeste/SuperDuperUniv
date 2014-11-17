@@ -4,16 +4,14 @@
     Author     : Fred Besteman
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Course Actions</title>
-    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
-</head>
+    <title>SDU: Main Menu</title>
+    <c:import url="header.jsp" />
 <body>
-    <h1>Main Menu</h1>
+    <h2>Main Menu</h2>
     <p>Select from the actions below:</p>
     
     <form action="actionControllerServlet" method="post">
@@ -23,5 +21,8 @@
         <input type="submit" name="action" value="Review Academic Records"><br>
         <input type="submit" name="action" value="Enter Grades(for instructors)"><br>    
     </form>
+    
+    <c:import url="footer.jsp" />
+    
 </body>
 </html>

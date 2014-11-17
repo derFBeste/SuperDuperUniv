@@ -3,8 +3,8 @@
     Created on : Oct 13, 2014, 9:19:41 PM
     Author     : Fred Besteman
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="besteman.model.Course"%>
 
@@ -14,11 +14,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="styles/main.css" type="text/css"/>
-        <title>Selected Courses</title>
-    </head>
-    <body>
-        <h2>Congratulations! You are now enrolled in:</h2>
-        <table>    
+        <title>SDU: Selected Courses</title>
+    <c:import url="header.jsp" />
+</head>
+<body>
+    <h2>Congratulations! You are now enrolled in:</h2>
+    <table>    
         <tr>
             <th>Dept</th>
             <th>Number</th>
@@ -30,10 +31,10 @@
             <th>Course Code</th>
         </tr>
         <%
-        ArrayList<Course> coursesSelected = (ArrayList<Course>) session.getAttribute("coursesSelected");
-        
+            ArrayList<Course> coursesSelected = (ArrayList<Course>) session.getAttribute("coursesSelected");
+
         %>
-        
+
         <tr>
             <th>${course.getCourseDept()}</th>
             <th>${course.getCourseNumber()}</th>
@@ -44,7 +45,8 @@
             <th>${course.getCourseCredit()}</th>
             <th>${course.getCourseCode()}</th>
         </tr>
-        </table>
+    </table>
+<c:import url="footer.jsp" />
 
 </body>
 </html>

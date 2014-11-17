@@ -4,19 +4,21 @@
     Author     : freddybeste
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
 
-        <title>Grade Entry Results</title>
-    </head>
+    <title>SDU: Grade Entry Results</title>
+    <c:import url="header.jsp" />
     <body>
         <h3>You have submitted grades for:</h3>
         <h4>Name: Nuckie Thompson</h4>
         <h4>Student Number: 555</h4>
         <h4>Grade: A</h4>   
+        <c:import url="footer.jsp" />
+
     </body>
 </html>
