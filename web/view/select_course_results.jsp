@@ -15,46 +15,46 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="styles/main.css" type="text/css"/>
         <title>SDU: Selected Courses</title>
-    <c:import url="header.jsp" />
-</head>
-<body>
-    <h2>You are now enrolled in:</h2>
-    <form action="SelectCourseServlet" method="GET">
-    <table>  
-        <thead>
-        <tr>
-            <th>Dept</th>
-            <th>Number</th>
-            <th>Title</th>
-            <th>Days & Time</th>
-            <th>Room</th>
-            <th>Instructor</th>
-            <th>Credits</th>
-            <th>Course Code</th>
-        </tr>
-        </thead>
-        <%
-            ArrayList<Course> coursesSelected = (ArrayList<Course>) session.getAttribute("coursesSelected");
-            if (coursesSelected != null)
-            {
-                for (int i = 0; i < coursesSelected.size(); i++)
-                {       
-        %>
+        <c:import url="header.jsp" />
+    </head>
+    <body>
+        <h2>You are now enrolled in:</h2>
+        <form action="SelectCourseServlet" method="GET">
+            <table>  
+                <thead>
+                    <tr>
+                        <th>Dept</th>
+                        <th>Number</th>
+                        <th>Title</th>
+                        <th>Days & Time</th>
+                        <th>Room</th>
+                        <th>Instructor</th>
+                        <th>Credits</th>
+                        <th>Course Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        ArrayList<Course> coursesSelected = (ArrayList<Course>) session.getAttribute("coursesSelected");
+                        if (coursesSelected != null) {
+                            for (int i = 0; i < coursesSelected.size(); i++) {
+                    %>
 
-                <tr>
-                    <th>${coursesSelected.get(i).getCourseDept()}</th>
-                    <th>${coursesSelected.get(i).getCourseNumber()}</th>
-                    <th>${coursesSelected.get(i).getCourseTitle()}</th>
-                    <th>${coursesSelected.get(i).getCourseDayNTime()}</th>
-                    <th>${coursesSelected.get(i).getCourseRoom()}</th>
-                    <th>${coursesSelected.get(i).getCourseInstructor()}</th>
-                    <th>${coursesSelected.get(i).getCourseCredit()}</th>
-                    <th>${coursesSelected.get(i).getCourseCode()}</th>
-                </tr>
-        <%    } }  %>
-    
-    </table>
-<c:import url="footer.jsp" />
-</form>
-</body>
+                    <tr>
+                        <th><%=coursesSelected.get(i).getCourseDept()%></th>
+                        <th><%=coursesSelected.get(i).getCourseNumber()%></th>
+                        <th><%=coursesSelected.get(i).getCourseTitle()%></th>
+                        <th><%=coursesSelected.get(i).getCourseDayNTime()%></th>
+                        <th><%=coursesSelected.get(i).getCourseRoom()%></th>
+                        <th><%=coursesSelected.get(i).getCourseInstructor()%></th>
+                        <th><%=coursesSelected.get(i).getCourseCredit()%></th>
+                        <th><%=coursesSelected.get(i).getCourseCode()%></th>
+                    </tr>
+                    <%    }
+            }%>
+                </tbody>
+            </table>
+            <c:import url="footer.jsp" />
+        </form>
+    </body>
 </html>

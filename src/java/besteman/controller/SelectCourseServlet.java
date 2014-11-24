@@ -43,11 +43,11 @@ public class SelectCourseServlet extends HttpServlet {
     {
         String url = "/view/index.jsp";
         
-        String action = request.getParameter("action");
+        //String action = request.getParameter("action");
         
         HttpSession session = request.getSession();
         
-        session.setAttribute("courseList", courseList);
+        //session.setAttribute("courseList", courseList);
         
         if (action.equals("Submit"))
         {
