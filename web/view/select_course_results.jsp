@@ -18,8 +18,10 @@
     <c:import url="header.jsp" />
 </head>
 <body>
-    <h2>Congratulations! You are now enrolled in:</h2>
-    <table>    
+    <h2>You are now enrolled in:</h2>
+    <form action="SelectCourseServlet" method="GET">
+    <table>  
+        <thead>
         <tr>
             <th>Dept</th>
             <th>Number</th>
@@ -30,23 +32,29 @@
             <th>Credits</th>
             <th>Course Code</th>
         </tr>
+        </thead>
         <%
             ArrayList<Course> coursesSelected = (ArrayList<Course>) session.getAttribute("coursesSelected");
-
+            if (coursesSelected != null)
+            {
+                for (int i = 0; i < coursesSelected.size(); i++)
+                {       
         %>
 
-        <tr>
-            <th>${course.getCourseDept()}</th>
-            <th>${course.getCourseNumber()}</th>
-            <th>${course.getCourseTitle()}</th>
-            <th>${course.getCourseDayNTime()}</th>
-            <th>${course.getCourseRoom()}</th>
-            <th>${course.getCourseInstructor()}</th>
-            <th>${course.getCourseCredit()}</th>
-            <th>${course.getCourseCode()}</th>
-        </tr>
+                <tr>
+                    <th>${coursesSelected.get(i).getCourseDept()}</th>
+                    <th>${coursesSelected.get(i).getCourseNumber()}</th>
+                    <th>${coursesSelected.get(i).getCourseTitle()}</th>
+                    <th>${coursesSelected.get(i).getCourseDayNTime()}</th>
+                    <th>${coursesSelected.get(i).getCourseRoom()}</th>
+                    <th>${coursesSelected.get(i).getCourseInstructor()}</th>
+                    <th>${coursesSelected.get(i).getCourseCredit()}</th>
+                    <th>${coursesSelected.get(i).getCourseCode()}</th>
+                </tr>
+        <%    } }  %>
+    
     </table>
 <c:import url="footer.jsp" />
-
+</form>
 </body>
 </html>

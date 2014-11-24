@@ -62,15 +62,15 @@ public class SelectCourseServlet extends HttpServlet {
 
             Course course = (Course) session.getAttribute("course");
             
-            coursesSelected.clear();
+            //coursesSelected.clear();
             
-            for (int i = 0; i < courseList.size(); i++)
-            {
-                if (request.getParameter("check"+i) != null)
-                {
-                    coursesSelected.add(courseList.get(i));
-                }
-            }
+//            for (int i = 0; i < courseList.size(); i++)
+//            {
+//                if (request.getParameter("check"+i) != null)
+//                {
+//                    coursesSelected.add(courseList.get(i));
+//                }
+//            }
             session.setAttribute("coursesSelected", coursesSelected);
             url = "/view/select_course_results.jsp";
             
