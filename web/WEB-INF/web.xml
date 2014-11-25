@@ -24,6 +24,12 @@
         <servlet-name>ActionControllerServlet</servlet-name>
         <url-pattern>/actionControllerServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SelectCourseServlet</servlet-name>
+        <url-pattern>/SelectCourseServlet</url-pattern>
+    </servlet-mapping>
+        
+    
     <!-- you can comment out these tags when the app is in development -->
     <error-page>
         <error-code>404</error-code>

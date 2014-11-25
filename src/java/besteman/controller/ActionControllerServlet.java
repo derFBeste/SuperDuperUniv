@@ -43,7 +43,8 @@ public class ActionControllerServlet extends HttpServlet {
         
         if (action.equals("Select Courses"))
         {
-            url = "/view/select_course.jsp";
+            ///trigger the SelectCourseServlet so that it then redirects to select_course.jsp
+            url = "/SelectCourseServlet.java";
         }
         
         else if (action.equals("Make a Payment"))
