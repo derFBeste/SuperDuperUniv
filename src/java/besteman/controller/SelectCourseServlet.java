@@ -53,15 +53,17 @@ public class SelectCourseServlet extends HttpServlet {
             courseList.add(3, new Course("HIST", "110", "Intro to History", "TBD", "C253", "Pettibone", "3", "444441"));
             
             session.setAttribute("courseList", courseList);
-            url = "/view/courseList.jsp";
+            url = "/view/select_course.jsp";
             
-            for (int i = 0; i < courseList.size(); i++)
-            {
-                coursesSelected.add(courseList.get(i));
-            }
+            //add an if button = submit statment here
             
-            session.setAttribute("coursesSelected", coursesSelected);
-            url = "/view/select_course_results.jsp";
+//            for (int i = 0; i < courseList.size(); i++)
+//            {
+//                coursesSelected.add(courseList.get(i));
+//            }
+            
+//            session.setAttribute("coursesSelected", coursesSelected);
+//            url = "/view/select_course_results.jsp";
 
         } 
         //to do: add code as needed like lines 34-50 of example
