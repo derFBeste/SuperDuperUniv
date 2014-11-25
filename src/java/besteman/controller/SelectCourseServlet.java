@@ -45,7 +45,7 @@ public class SelectCourseServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         //session.setAttribute("courseList", courseList);
-        if (request.getParameter(url) != null) {
+        if (request.getParameter("homepage") != null) {
             courseList.clear();
             courseList.add(0, new Course("Art", "110", "Intro to Art", "MW, 2:00-3:00", "A256", "Bosch", "3", "111111"));
             courseList.add(1, new Course("CIS", "110", "Intro to Programming", "TBD", "F115", "Turing", "3", "222221"));
@@ -53,14 +53,15 @@ public class SelectCourseServlet extends HttpServlet {
             courseList.add(3, new Course("HIST", "110", "Intro to History", "TBD", "C253", "Pettibone", "3", "444441"));
             
             session.setAttribute("courseList", courseList);
-            url = "/courseList.jsp";
+            url = "/view/courseList.jsp";
             
             for (int i = 0; i < courseList.size(); i++)
             {
                 coursesSelected.add(courseList.get(i));
             }
             
-            url = "/select_course_results.jsp";
+            session.setAttribute("coursesSelected", coursesSelected);
+            url = "/view/select_course_results.jsp";
 
         } //        if (action.equals("Submit"))
         //        {

@@ -10,19 +10,22 @@
 <html>
     <title>SDU: Main Menu</title>
     <c:import url="header.jsp" />
-<body>
-    <h2>Main Menu</h2>
-    <p>Select from the actions below:</p>
-    
-    <form action="actionControllerServlet" method="post">
-        <input type="submit" name="action" value="Select Courses"><br>
-        <input type="submit" name="action" value="Make a Payment"><br>
-        <input type="submit" name="action" value="Review Financial Records"><br>
-        <input type="submit" name="action" value="Review Academic Records"><br>
-        <input type="submit" name="action" value="Enter Grades(for instructors)"><br>    
-    </form>
-    
-    <c:import url="footer.jsp" />
-    
-</body>
-</html>
+    <body>
+        <h2>Main Menu</h2>
+        <p>Select from the actions below:</p>
+
+        <form action="actionControllerServlet" method="post">
+            <a href= "SelectCourseServlet?homepage=on">Select Courses</a><br>
+
+
+                <!--        <input type="submit" name="action" value="Select Courses"><br>-->
+                <input type="submit" name="action" value="Make a Payment"><br>
+                <input type="submit" name="action" value="Review Financial Records"><br>
+                <input type="submit" name="action" value="Review Academic Records"><br>
+                <input type="submit" name="action" value="Enter Grades(for instructors)"><br>    
+                </form>
+
+                <c:import url="footer.jsp" />
+
+                </body>
+                </html>
