@@ -9,15 +9,15 @@ package besteman.model;
  *
  * @author besteman
  */
-public class Student {
+public class StudentInfo {
     
-    protected String student_number;
-    protected String student_name;
+    private String student_number;
+    private String student_name;
     private String address;
     private String zip;
     private String phone_number;
     
-    public Student(String student_number, String student_name, String address, String zip, String phone_number)
+    public StudentInfo(String student_number, String student_name, String address, String zip, String phone_number)
     {
         this.student_number = student_number;
         this.student_name = student_name;

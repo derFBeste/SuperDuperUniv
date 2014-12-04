@@ -18,8 +18,42 @@ public class StudentFinancial {
     
     public StudentFinancial()
     {
+        this.student_number = student_number;
         this.creditcard = creditcard;
         this.current_due = current_due;
         this.past_payment = past_payment;
     }
+
+    public String getStudent_number() {
+        return student_number;
+    }
+
+    public void setStudent_number(String student_number) {
+        this.student_number = student_number;
+    }
+
+    public String getCreditcard() {
+        return creditcard;
+    }
+
+    public void setCreditcard(String creditcard) {
+        this.creditcard = creditcard;
+    }
+
+    public String getCurrent_due() {
+        return current_due;
+    }
+
+    public void setCurrent_due(String current_due) {
+        this.current_due = current_due;
+    }
+
+    public String getPast_payment() {
+        return past_payment;
+    }
+
+    public void setPast_payment(String past_payment) {
+        this.past_payment = past_payment;
+    }
+    
 }
