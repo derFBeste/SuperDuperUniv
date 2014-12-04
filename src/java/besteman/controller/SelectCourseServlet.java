@@ -36,7 +36,6 @@ public class SelectCourseServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         url = "/view/index.jsp";
@@ -47,28 +46,36 @@ public class SelectCourseServlet extends HttpServlet {
         //session.setAttribute("courseList", courseList);
         if (request.getParameter("homepage") != null) {
             courseList.clear();
-            courseList.add(0, new Course("Art", "110", "Intro to Art", "MW, 2:00-3:00", "A256", "Bosch", "3", "111111"));
-            courseList.add(1, new Course("CIS", "110", "Intro to Programming", "TBD", "F115", "Turing", "3", "222221"));
-            courseList.add(2, new Course("ENG", "100", "Freshmen English", "TBD", "A130", "Forster-Wallace", "3", "333331"));
-            courseList.add(3, new Course("HIST", "110", "Intro to History", "TBD", "C253", "Pettibone", "3", "444441"));
-            
+            courseList.add(0, new Course("Art", "110", "Intro to Art", "MW, 2:00-3:00", "A256", "Bosch", 3, "111111"));
+            courseList.add(1, new Course("CIS", "110", "Intro to Programming", "TBD", "F115", "Turing", 3, "222221"));
+            courseList.add(2, new Course("ENG", "100", "Freshmen English", "TBD", "A130", "Forster-Wallace", 3, "333331"));
+            courseList.add(3, new Course("HIST", "110", "Intro to History", "TBD", "C253", "Pettibone", 3, "444441"));
+
             session.setAttribute("courseList", courseList);
             url = "/view/select_course.jsp";
-            
+
             //add an if button = submit statment here
-            
-//            for (int i = 0; i < courseList.size(); i++)
-//            {
-//                coursesSelected.add(courseList.get(i));
-//            }
-            
-//            session.setAttribute("coursesSelected", coursesSelected);
-//            url = "/view/select_course_results.jsp";
+        } else if (request.getParameter("submit_courses") != null) {
+            coursesSelected.clear();
+
+            for (int i = 0; i < courseList.size(); i++) {
+                if (request.getParameter("check" + i) != null) {
+                    coursesSelected.add(courseList.get(i));
+                }
+            }
+
+            session.setAttribute("coursesSelected", coursesSelected);
+            url = "/view/select_course_results.jsp";
 
         } 
-        //to do: add code as needed like lines 34-50 of example
-        else {
+        else if (request.getParameter("go_home") != null) 
+        {
             url = "/view/index.jsp";
+            
+        } 
+        else 
+        {
+            url = "/view/select_course.jsp";
         }
 
         getServletContext().getRequestDispatcher(url).forward(request, response);
@@ -113,6 +120,5 @@ public class SelectCourseServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 
 }

@@ -19,21 +19,28 @@ public class Course implements Serializable
     private String courseDayNTime;
     private String courseRoom;
     private String courseInstructor;
-    private String courseCredit;
+    private int courseCredit;
     private String courseCode;
     
-    public Course(String courseDept,String courseNumber,String courseTitle,String courseDayNTime,String courseRoom, String courseInstructor, String courseCredit, String courseCode )
+    public Course(String courseDept,String courseNumber,String courseTitle,String courseDayNTime,String courseRoom, String courseInstructor, int courseCredit, String courseCode )
     {
-        courseDept = "";
-        courseNumber = "";
-        courseTitle = "";
-        courseDayNTime = "TBA";
-        courseRoom = "TBA";
-        courseInstructor = "TBA";
-        courseCredit = "";
-        courseCode = "";
+//        courseDept = "";
+//        courseNumber = "";
+//        courseTitle = "";
+//        courseDayNTime = "TBA";
+//        courseRoom = "TBA";
+//        courseInstructor = "TBA";
+//        courseCredit = 0;
+//        courseCode = "";
         
-        
+        this.courseDept = courseDept;
+        this.courseNumber = courseNumber;
+        this.courseTitle = courseTitle;
+        this.courseDayNTime = courseDayNTime;
+        this.courseRoom = courseRoom;
+        this.courseInstructor = courseInstructor;
+        this.courseCredit = courseCredit;
+        this.courseCode = courseCode;     
     }
     
     public Course()
@@ -44,7 +51,7 @@ public class Course implements Serializable
         courseDayNTime = "TBA";
         courseRoom = "TBA";
         courseInstructor = "TBA";
-        courseCredit = "";
+        courseCredit = 0;
         courseCode = "";
         
         
@@ -97,11 +104,11 @@ public class Course implements Serializable
         this.courseInstructor = courseInstructor;
     }
 
-    public String getCourseCredit() {
+    public int getCourseCredit() {
         return courseCredit;
     }
 
-    public void setCourseCredit(String courseCredit) {
+    public void setCourseCredit(int courseCredit) {
         this.courseCredit = courseCredit;
     }
 

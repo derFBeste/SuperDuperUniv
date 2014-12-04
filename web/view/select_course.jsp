@@ -17,6 +17,7 @@
         <c:import url="header.jsp" />
     </head>
     <body>
+        <h2>Winter 2015</h2>
         <h2>Select Courses Below:</h2>
 
         <form action ="SelectCourseServlet" method="post">
@@ -57,8 +58,8 @@
 
                 </tbody>
             </table>
-            <input type="submit" name="action" value="Submit">
-            <input type="submit" name="action" value="Go Back">
+            <input type="submit" name="submit_courses" value="Submit">
+            <input type="submit" name="go_home" value="Home">
 
             <c:import url="footer.jsp" />
 
