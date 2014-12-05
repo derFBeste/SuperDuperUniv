@@ -6,9 +6,11 @@
 package besteman.controller;
 
 import besteman.model.Course;
+import besteman.model.database.DBCourse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,19 +44,47 @@ public class SelectCourseServlet extends HttpServlet {
 
         //String action = request.getParameter("action");
         HttpSession session = request.getSession();
-
+        
+//        String insertMessage = null;
+//        int insertResult;
+//        Course insertCourse;
+//        String insertCourseCode = "111112";
+//        
+//        try(PrintWriter out = response.getWriter())
+//        {
+//            insertCourse = new Course(insertCourseCode, "Art", "200", "Drawing I", "TH 12:30-2:30", "A777", "Schiele", 3);
+//            insertResult = DBCourse.insert(insertCourse);
+//            if(insertResult != 0) insertMessage = "Course" + insertCourse.getCourseTitle() + " inserted successfully.";
+//            
+//        
+//        
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet CE6Servlet</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h2>Servlet CE6Servlet</h2>");
+//            out.println(insertMessage + "<br>");
+//            out.println("</body>");
+//            out.println("</html>");
+//        }
+//        
         //session.setAttribute("courseList", courseList);
         if (request.getParameter("homepage") != null) {
             courseList.clear();
-            courseList.add(0, new Course("Art", "110", "Intro to Art", "MW, 2:00-3:00", "A256", "Bosch", 3, "111111"));
-            courseList.add(1, new Course("CIS", "110", "Intro to Programming", "TBD", "F115", "Turing", 3, "222221"));
-            courseList.add(2, new Course("ENG", "100", "Freshmen English", "TBD", "A130", "Forster-Wallace", 3, "333331"));
-            courseList.add(3, new Course("HIST", "110", "Intro to History", "TBD", "C253", "Pettibone", 3, "444441"));
+            courseList.add(0, new Course("111111", "Art", "110", "Intro to Art", "MW, 2:00-3:00", "A256", "Bosch", 3));
+            courseList.add(1, new Course("222221", "CIS", "110", "Intro to Programming", "TBD", "F115", "Turing", 3));
+            courseList.add(2, new Course("333331", "ENG", "100", "Freshmen English", "TBD", "A130", "Forster-Wallace", 3));
+            courseList.add(3, new Course("444441", "HIST", "110", "Intro to History", "TBD", "C253", "Pettibone", 3));
 
             session.setAttribute("courseList", courseList);
             url = "/view/select_course.jsp";
 
-            //add an if button = submit statment here
+            
+            
+            
+            
         } else if (request.getParameter("submit_courses") != null) {
             coursesSelected.clear();
 

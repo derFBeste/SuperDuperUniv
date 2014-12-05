@@ -16,6 +16,10 @@
         <servlet-name>EnterGradesServlet</servlet-name>
         <servlet-class>besteman.controller.EnterGradesServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>besteman.controller.TestServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EnterGradesServlet</servlet-name>
         <url-pattern>/enterGradesServlet</url-pattern>
@@ -28,8 +32,6 @@
         <servlet-name>SelectCourseServlet</servlet-name>
         <url-pattern>/SelectCourseServlet</url-pattern>
     </servlet-mapping>
-        
-    
     <!-- you can comment out these tags when the app is in development -->
     <error-page>
         <error-code>404</error-code>
@@ -46,6 +48,10 @@
     <servlet-mapping>
         <servlet-name>ReviewAcademicServlet</servlet-name>
         <url-pattern>/ReviewAcademicServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/TestServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

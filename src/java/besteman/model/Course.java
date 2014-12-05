@@ -22,7 +22,7 @@ public class Course implements Serializable
     private int courseCredit;
     private String courseCode;
     
-    public Course(String courseDept,String courseNumber,String courseTitle,String courseDayNTime,String courseRoom, String courseInstructor, int courseCredit, String courseCode )
+    public Course(String courseCode, String courseDept, String courseNumber,String courseTitle,String courseDayNTime,String courseRoom, String courseInstructor, int courseCredit)
     {
 //        courseDept = "";
 //        courseNumber = "";
