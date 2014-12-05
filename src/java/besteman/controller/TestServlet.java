@@ -35,10 +35,16 @@ public class TestServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession session = request.getSession();
+        
+        
         String insertMessage = null;
         int insertResult;
         Course insertCourse;
         String insertCourseCode = "111112";
+        
+        String selectMessage;
+        int selectResult;
+        String selectCourseCode = "555555";
         
         
         
@@ -49,6 +55,10 @@ public class TestServlet extends HttpServlet {
             if(insertResult != 0) insertMessage = "Course" + insertCourse.getCourseTitle() + " inserted successfully.";
             else insertMessage = "Course "+insertCourse.getCourseTitle() + " insert failed";
 
+            Course selectCourse = new Course();
+            selectCourse = DBCourse.selectCourse(selectCourseCode);
+            if(selectCourse != null) selectMessage = "Course " + selectCourseCode + " selected";
+            else selectMessage = "Course " + selectCourseCode + " not selected";
             
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -59,6 +69,8 @@ public class TestServlet extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet TestServlet at " + request.getContextPath() + "</h1>");
             out.println(insertMessage + "<br>");
+            out.println(selectMessage + "<br>");
+
             out.println("</body>");
             out.println("</html>");
         }
