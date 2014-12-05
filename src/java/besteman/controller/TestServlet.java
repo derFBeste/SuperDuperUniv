@@ -44,7 +44,7 @@ public class TestServlet extends HttpServlet {
         
         String selectMessage;
         int selectResult;
-        String selectCourseCode = "555555";
+        String selectCourseCode = "55555";
         
         
         
