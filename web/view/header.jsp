@@ -13,6 +13,5 @@
     
 <div class=container>
     <h1>SUPER DUPER UNIVERSITY</h1>
-
-
+    
 </div>

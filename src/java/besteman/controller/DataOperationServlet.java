@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author freddybeste
  */
-public class TestServlet extends HttpServlet {
+public class DataOperationServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

@@ -30,18 +30,18 @@ public class ReviewAcademicServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        String url = "/index.jsp";
+        String url = "/view/review_academic.jsp";
         
-        String action = request.getParameter("action");
-        
-        if (action.equals("Submit"))
-        {
-            url = "/review_academic_results.jsp";
-        }
-        else
-        {
-            url = "/index.jsp";
-        }
+//        String action = request.getParameter("action");
+//        
+//        if (action.equals("Submit"))
+//        {
+//            url = "/review_academic_results.jsp";
+//        }
+//        else
+//        {
+//            url = "/index.jsp";
+//        }
         
         getServletContext().getRequestDispatcher(url).forward(request, response);
         

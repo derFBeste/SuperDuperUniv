@@ -44,32 +44,7 @@ public class SelectCourseServlet extends HttpServlet {
 
         //String action = request.getParameter("action");
         HttpSession session = request.getSession();
-        
-//        String insertMessage = null;
-//        int insertResult;
-//        Course insertCourse;
-//        String insertCourseCode = "111112";
-//        
-//        try(PrintWriter out = response.getWriter())
-//        {
-//            insertCourse = new Course(insertCourseCode, "Art", "200", "Drawing I", "TH 12:30-2:30", "A777", "Schiele", 3);
-//            insertResult = DBCourse.insert(insertCourse);
-//            if(insertResult != 0) insertMessage = "Course" + insertCourse.getCourseTitle() + " inserted successfully.";
-//            
-//        
-//        
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet CE6Servlet</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h2>Servlet CE6Servlet</h2>");
-//            out.println(insertMessage + "<br>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
-//        
+      
         //session.setAttribute("courseList", courseList);
         if (request.getParameter("homepage") != null) {
             courseList.clear();
@@ -80,11 +55,7 @@ public class SelectCourseServlet extends HttpServlet {
 
             session.setAttribute("courseList", courseList);
             url = "/view/select_course.jsp";
-
-            
-            
-            
-            
+     
         } else if (request.getParameter("submit_courses") != null) {
             coursesSelected.clear();
 

@@ -18,7 +18,7 @@
     </servlet>
     <servlet>
         <servlet-name>TestServlet</servlet-name>
-        <servlet-class>besteman.controller.TestServlet</servlet-class>
+        <servlet-class>besteman.controller.DataOperationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EnterGradesServlet</servlet-name>
