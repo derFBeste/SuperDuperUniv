@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : Oct 13, 2014, 8:44:13 PM
     Author     : Fred Besteman
 */
+body{
+    background-color: #d8d8d8;
+}
 table {
     border: 1px solid black;
 }

@@ -6,6 +6,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="utf-8"%>
+<link rel="stylesheet" href="styles/main.css" type="text/css"/>
+
 <!DOCTYPE html>
 <html>
     <title>SDU: Main Menu</title>
@@ -16,7 +18,7 @@
 
         <form action="actionControllerServlet" method="post">
             <a href= "SelectCourseServlet?homepage=on">Select Courses</a><br/>
-
+            <a href= "ReviewAcademicServlet?homepage=on">Review Academic Records</a><br/>
 
                 <!--        <input type="submit" name="action" value="Select Courses"><br>-->
 <!--                <input type="submit" name="action" value="Make a Payment"><br>
