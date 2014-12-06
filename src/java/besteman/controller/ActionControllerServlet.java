@@ -67,7 +67,7 @@ public class ActionControllerServlet extends HttpServlet {
 
         }
 
-        else if (action.equals("Enter Grades(for instructors)"))
+        else if (action.equals("Enter Grades"))
         {
             url = "/view/enter_grades.jsp";
         }

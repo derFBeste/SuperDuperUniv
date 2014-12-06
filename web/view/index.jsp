@@ -15,22 +15,31 @@
     <body>
         <h2>Main Menu</h2>
 
-                <form action="actionControllerServlet" method="post">
-        <h3>Student Menu:</h3>
-        <!--<a href= "SelectCourseServlet?homepage=on">Select Courses</a><br/>-->
+<!--        <h3>Student Menu:</h3>-->
+<!--        <a href= "SelectCourseServlet?homepage=on">Select Courses</a><br/>
         <a href= "ReviewAcademicServlet?homepage=on">Review Academic Records</a><br/>
         <a href= "">Review Financial Records</a></br>
-        <a href= "">Make a Payment</a></br></br>
-        <h3>Instructors:</h3>
-        <a href= "EnterGradesServlet?homepage=on">Enter Grades</a></br></br>
+        <a href= "">Make a Payment</a></br></br>-->
+<!--        <h3>Instructors:</h3>-->
+<!--        <a href= "EnterGradesServlet?homepage=on">Enter Grades</a></br></br>
         <h3>Administration:</h3>
-        <a href= "DataOperationServlet?homepage=on">Data Operations</a>
-               <input type="submit" name="action" value="Select Courses"><br>
-                        <input type="submit" name="action" value="Make a Payment"><br>
-                        <input type="submit" name="action" value="Review Financial Records"><br>
-                        <input type="submit" name="action" value="Review Academic Records"><br>
-                        <input type="submit" name="action" value="Enter Grades(for instructors)"><br>    
-                        </form>
+        <a href= "DataOperationServlet?homepage=on">Data Operations</a>-->
+        
+                    <form action="actionControllerServlet" method="post">
+
+                        <h3>Student Menu:</h3>
+                        <input class="button" type="submit" name="action" value="Select Courses"></br>
+                        <input class="button" type="submit" name="action" value="Make a Payment"></br>
+                        <input class="button" type="submit" name="action" value="Review Financial Records"></br>
+                        <input class="button" type="submit" name="action" value="Review Academic Records"></br></br>
+                        
+                        <h3>Instructors:</h3>
+                        <input class="button" type="submit" name="action" value="Enter Grades"></br></br>
+                        
+                        <h3>Administration:</h3>
+                        <input class="button" type="submit" name="action" value="Data Operations"></br>
+                        
+                    </form>
 
         <c:import url="footer.jsp" />
 
