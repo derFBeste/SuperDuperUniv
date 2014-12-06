@@ -72,7 +72,10 @@ public class ActionControllerServlet extends HttpServlet {
             url = "/view/enter_grades.jsp";
         }
                 
-               
+        else if (action.equals("Data Operations"))
+        {
+            url = "/DataOperationsServlet";
+        }
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);

@@ -46,6 +46,9 @@ public class DataOperationsServlet extends HttpServlet {
         int selectResult;
         String selectCourseCode = "111112";
         
+        String deleteMessage;
+        int deleteResult;
+        String deleteCourseCode = "111113";
         
         
         try (PrintWriter out = response.getWriter()) {
@@ -55,10 +58,16 @@ public class DataOperationsServlet extends HttpServlet {
             if(insertResult != 0) insertMessage = "Course" + insertCourse.getCourseTitle() + " inserted successfully.";
             else insertMessage = "Course "+insertCourse.getCourseTitle() + " insert failed";
 
+            //possibly have to change selectCourse to selectResult
             Course selectCourse = new Course();
             selectCourse = DBCourse.selectCourse(selectCourseCode);
             if(selectCourse != null) selectMessage = "Course " + selectCourseCode + " selected";
             else selectMessage = "Course " + selectCourseCode + " not selected";
+            
+            Course deleteCourse = new Course();
+            deleteResult = DBCourse.deleteCourse(deleteCourseCode);
+            if(deleteResult != 0) deleteMessage = "Course " + deleteCourse.getCourseTitle() + " was deleted.";
+            else deleteMessage = "Course " + deleteCourse.getCourseTitle() + " wasn't deleted.";
             
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -68,9 +77,9 @@ public class DataOperationsServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet TestServlet at " + request.getContextPath() + "</h1>");
-            out.println(insertMessage + "<br>");
-            out.println(selectMessage + "<br>");
-
+            out.println(insertMessage + "</br>");
+            out.println(selectMessage + "</br>");
+            out.println(deleteMessage + "</br>");
             out.println("</body>");
             out.println("</html>");
         }

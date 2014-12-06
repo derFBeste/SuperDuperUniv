@@ -72,8 +72,6 @@ public class DBCourse {
                     course.setCourseRoom(rs.getString("room"));
                     course.setCourseInstructor(rs.getString("instructor"));
                     course.setCourseCredit(rs.getInt("credits"));
-                    
-                    
 
                 }
                 return course;
@@ -91,7 +89,7 @@ public class DBCourse {
             
         }
         
-        public static int delete(Integer course_code) {
+        public static int deleteCourse(String course_code) {
             ConnectionPool pool = ConnectionPool.getInstance();
             Connection connection = pool.getConnection();
             PreparedStatement ps = null;
@@ -100,7 +98,7 @@ public class DBCourse {
                     + "WHERE course_code = ?";
             try {
                 ps = connection.prepareStatement(query);
-                ps.setInt(1, course_code);
+                ps.setString(1, course_code);
 
                 return ps.executeUpdate();
             } catch (SQLException e) {
