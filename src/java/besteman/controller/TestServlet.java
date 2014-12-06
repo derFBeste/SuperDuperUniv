@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author freddybeste
  */
-public class DataOperationServlet extends HttpServlet {
+public class TestServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,17 +40,17 @@ public class DataOperationServlet extends HttpServlet {
         String insertMessage = null;
         int insertResult;
         Course insertCourse;
-        String insertCourseCode = "111112";
+        String insertCourseCode = "111113";
         
         String selectMessage;
         int selectResult;
-        String selectCourseCode = "55555";
+        String selectCourseCode = "111112";
         
         
         
         try (PrintWriter out = response.getWriter()) {
             
-            insertCourse = new Course(insertCourseCode, "Art", "200", "Drawing I", "TH 12:30-2:30", "A777", "Schiele", 3);
+            insertCourse = new Course(insertCourseCode, "Art", "200", "Drawing II", "MW 12:30-2:30", "A777", "Schiele", 3);
             insertResult = DBCourse.insert(insertCourse);
             if(insertResult != 0) insertMessage = "Course" + insertCourse.getCourseTitle() + " inserted successfully.";
             else insertMessage = "Course "+insertCourse.getCourseTitle() + " insert failed";
