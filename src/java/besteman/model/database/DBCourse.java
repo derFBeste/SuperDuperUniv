@@ -90,5 +90,26 @@ public class DBCourse {
             
             
         }
+        
+        public static int delete(Integer course_code) {
+            ConnectionPool pool = ConnectionPool.getInstance();
+            Connection connection = pool.getConnection();
+            PreparedStatement ps = null;
+
+            String query = "DELETE FROM course "
+                    + "WHERE course_code = ?";
+            try {
+                ps = connection.prepareStatement(query);
+                ps.setInt(1, course_code);
+
+                return ps.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e);
+                return 0;
+            } finally {
+                DBUtil.closePreparedStatement(ps);
+                pool.freeConnection(connection);
+            }
+        }
     
 }
