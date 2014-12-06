@@ -10,6 +10,7 @@ import besteman.model.database.DBCourse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -75,9 +76,10 @@ public class DataOperationsServlet extends HttpServlet {
             if(deleteResult != 0) deleteMessage = "Course " + deleteCourse.getCourseTitle() + " was deleted.";
             else deleteMessage = "Course " + deleteCourse.getCourseTitle() + " wasn't deleted.";
             
-            Course selectAllCourse = new Course();
-            selectAllCourse = DBCourse.selectAllCourses();
-            if(selectAllCourse != null) selectAllMessage = "The last course is " + selectAllCourse.getCourseTitle();
+            ArrayList<Course> courseList = new ArrayList<Course>();
+            courseList = DBCourse.selectAllCourses();
+            if(courseList != null) selectAllMessage = "Arrays have been made.";
+            else selectAllMessage = "failed";
             
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");

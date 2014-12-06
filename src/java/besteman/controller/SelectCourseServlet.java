@@ -11,7 +11,10 @@ import besteman.model.database.DBCourse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -39,7 +42,7 @@ public class SelectCourseServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         url = "/view/index.jsp";
 
         //String action = request.getParameter("action");
@@ -48,17 +51,28 @@ public class SelectCourseServlet extends HttpServlet {
         //session.setAttribute("courseList", courseList);
 //        if (request.getParameter("homepage") != null) {
             courseList.clear();
+            ArrayList<Course> courseList = new ArrayList<Course>();
+            courseList = DBCourse.selectAllCourses();
+//            Course selectAllCourse = new Course();
+//            
+//            for(int i = 0; i < courseList.size(); i++ )
+//            { 
+//                
+//                selectAllCourse = DBCourse.selectAllCourses();
+//                courseList.add(i, new Course(selectAllCourse.getCourseCode(), selectAllCourse.getCourseDept(), selectAllCourse.getCourseNumber(), selectAllCourse.getCourseTitle(), 
+//                selectAllCourse.getCourseDayNTime(), selectAllCourse.getCourseRoom(), selectAllCourse.getCourseInstructor(), selectAllCourse.getCourseCredit()));
+//                courseList.add(0, new Course("111111", "Art", "110", "Intro to Art", "MW, 2:00-3:00", "A256", "Bosch", 3));
+//                courseList.add(1, new Course("222221", "CIS", "110", "Intro to Programming", "TBD", "F115", "Turing", 3));
+//                courseList.add(2, new Course("333331", "ENG", "100", "Freshmen English", "TBD", "A130", "Forster-Wallace", 3));
+//                courseList.add(3, new Course("444441", "HIST", "110", "Intro to History", "TBD", "C253", "Pettibone", 3));
             
-            
-                courseList.add(0, new Course("111111", "Art", "110", "Intro to Art", "MW, 2:00-3:00", "A256", "Bosch", 3));
-                courseList.add(1, new Course("222221", "CIS", "110", "Intro to Programming", "TBD", "F115", "Turing", 3));
-                courseList.add(2, new Course("333331", "ENG", "100", "Freshmen English", "TBD", "A130", "Forster-Wallace", 3));
-                courseList.add(3, new Course("444441", "HIST", "110", "Intro to History", "TBD", "C253", "Pettibone", 3));
-
+//            }    
+//                
+//                
             session.setAttribute("courseList", courseList);
             url = "/view/select_course.jsp";
      
-//        } 
+     //   } 
         if (request.getParameter("submit_courses") != null) {
             coursesSelected.clear();
 
@@ -98,7 +112,11 @@ public class SelectCourseServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(SelectCourseServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -112,7 +130,11 @@ public class SelectCourseServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(SelectCourseServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
