@@ -12,11 +12,19 @@
 
 <%
     GregorianCalendar currentDate = new GregorianCalendar();
-    int currentYear = currentDate.get(Calendar.YEAR);   
+    int currentYear = currentDate.get(Calendar.YEAR);
 %>
 
+
+
+
 <div class=container>
-<p>&copy; Copyright <%= currentYear %> Super Duper University</p>
+    <form action="/SuperDuperUniv">
+        <input class="button" type="submit" name="action" value="Home">
+    </form>
+    <p>
+        &copy; Copyright <%= currentYear%> Super Duper University
+    </p>
 </div>
 
 

@@ -24,14 +24,7 @@ public class Course implements Serializable
     
     public Course(String courseCode, String courseDept, String courseNumber,String courseTitle,String courseDayNTime,String courseRoom, String courseInstructor, int courseCredit)
     {
-//        courseDept = "";
-//        courseNumber = "";
-//        courseTitle = "";
-//        courseDayNTime = "TBA";
-//        courseRoom = "TBA";
-//        courseInstructor = "TBA";
-//        courseCredit = 0;
-//        courseCode = "";
+
         
         this.courseDept = courseDept;
         this.courseNumber = courseNumber;

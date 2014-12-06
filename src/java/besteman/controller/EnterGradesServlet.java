@@ -35,18 +35,23 @@ public class EnterGradesServlet extends HttpServlet {
         String url = "/index.jsp";
         
         String action = request.getParameter("action");
-        String studentNumber = request.getParameter("studentNumber");
-        String grade = request.getParameter("grade");
+        
+        String password = request.getParameter("password");
+        String term = request.getParameter("term");
+        String courseTitle = request.getParameter("courseTitle");
         
         if (action.equals("Submit"))
         {
-            url = "/enter_grades_results.jsp";
-            request.setAttribute("studentNumber", studentNumber);
-            request.setAttribute("grade", grade);
+            request.setAttribute("password", password);
+            request.setAttribute("term", term);
+            request.setAttribute("courseTitle", courseTitle);
+            
+            url = "/view/enter_grades.jsp";
+
         }
         else
         {
-            url = "/index.jsp";
+            url = "/view/index.jsp";
         }
         
         getServletContext().getRequestDispatcher(url).forward(request, response);
