@@ -9,6 +9,9 @@ import besteman.model.Course;
 import besteman.model.database.DBCourse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +34,7 @@ public class DataOperationsServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession session = request.getSession();
@@ -49,6 +52,9 @@ public class DataOperationsServlet extends HttpServlet {
         String deleteMessage;
         int deleteResult;
         String deleteCourseCode = "111113";
+        
+        String selectAllMessage = null;
+        int selectAllResult;
         
         
         try (PrintWriter out = response.getWriter()) {
@@ -69,6 +75,10 @@ public class DataOperationsServlet extends HttpServlet {
             if(deleteResult != 0) deleteMessage = "Course " + deleteCourse.getCourseTitle() + " was deleted.";
             else deleteMessage = "Course " + deleteCourse.getCourseTitle() + " wasn't deleted.";
             
+            Course selectAllCourse = new Course();
+            selectAllCourse = DBCourse.selectAllCourses();
+            if(selectAllCourse != null) selectAllMessage = "The last course is " + selectAllCourse.getCourseTitle();
+            
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -76,10 +86,12 @@ public class DataOperationsServlet extends HttpServlet {
             out.println("<title>Servlet TestServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet TestServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DataOperationsServlet at " + request.getContextPath() + "</h1>");
             out.println(insertMessage + "</br>");
             out.println(selectMessage + "</br>");
             out.println(deleteMessage + "</br>");
+            out.println(selectAllMessage + "</br>");
+
             out.println("</body>");
             out.println("</html>");
         }
@@ -97,7 +109,11 @@ public class DataOperationsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataOperationsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -111,7 +127,11 @@ public class DataOperationsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataOperationsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
