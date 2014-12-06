@@ -60,8 +60,8 @@
 
                 </tbody>
             </table>
-            <input type="submit" name="submit_courses" value="Submit">
-            <input type="submit" name="go_home" value="Home">
+            <input class="button" type="submit" name="submit_courses" value="Submit">
+            <input class="button" type="submit" name="go_home" value="Home">
 
             <c:import url="footer.jsp" />
 
