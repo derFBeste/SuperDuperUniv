@@ -6,8 +6,10 @@
 package besteman.controller;
 
 import besteman.model.Course;
+import besteman.model.Faculty;
 import besteman.model.Grades;
 import besteman.model.database.DBCourse;
+import besteman.model.database.DBFaculty;
 import besteman.model.database.DBGrades;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -71,12 +73,18 @@ public class DataOperationsServlet extends HttpServlet {
             if(insertResult != 0) insertMessage = "Course" + insertCourse.getCourseTitle() + " inserted successfully.";
             else insertMessage = "Course "+insertCourse.getCourseTitle() + " insert failed";
 
-            newGrade = new Grades("Algebra", "Walter White", "B");
-            insertResultGrade = DBGrades.insertGrades(newGrade);
-            if(insertResultGrade != 0) insertMessage = "Course " + newGrade.getTitle() + " inserted successfully.";
-            else insertMessage = "Course "+ newGrade.getTitle() + " insert failed";
+//            newGrade = new Grades("Algebra", "Walter White", "B");
+//            insertResultGrade = DBGrades.insertGrades(newGrade);
+//            if(insertResultGrade != 0) insertMessage = "Course " + newGrade.getTitle() + " inserted successfully.";
+//            else insertMessage = "Course "+ newGrade.getTitle() + " insert failed";
             
             
+            String facultyMessage;
+            String password = "default";
+            Faculty faculty = new Faculty();
+            faculty = DBFaculty.passwordCheck(password);
+            if(faculty != null) facultyMessage = "Faculty " + faculty.getFaculty_name() + " selected";
+            else facultyMessage = "failed";
             
             //possibly have to change selectCourse to selectResult
             Course selectCourse = new Course();
@@ -115,7 +123,7 @@ public class DataOperationsServlet extends HttpServlet {
             out.println(deleteMessage + "</br>");
             out.println(selectAllMessage + "</br>");
             out.println(gradeMessage + "</br>");
-
+            out.println(facultyMessage + "</br>");
             out.println("</body>");
             out.println("</html>");
         }

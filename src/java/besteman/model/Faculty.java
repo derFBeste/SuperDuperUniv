@@ -22,6 +22,11 @@ public class Faculty {
         this.p_word = p_word;
         
     }
+    
+    public Faculty()
+    {
+        
+    }
 
     public String getFaculty_name() {
         return faculty_name;

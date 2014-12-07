@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Super Duper University</title>
+    <title>SDU: ERROR</title>
     <link rel="stylesheet" href="styles/main.css" type="text/css"/>
 </head>
 <body>
