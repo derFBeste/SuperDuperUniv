@@ -9,8 +9,8 @@
         <servlet-class>besteman.controller.SelectCourseServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ReviewAcademicServlet</servlet-name>
-        <servlet-class>besteman.controller.ReviewAcademicServlet</servlet-class>
+        <servlet-name>AcademicRecordsServlet</servlet-name>
+        <servlet-class>besteman.controller.AcademicRecordsServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EnterGradesServlet</servlet-name>
@@ -32,6 +32,10 @@
         <servlet-name>SelectCourseServlet</servlet-name>
         <url-pattern>/SelectCourseServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AcademicRecordsServlet</servlet-name>
+        <url-pattern>/AcademicRecordsServlet</url-pattern>
+    </servlet-mapping>
     <!-- you can comment out these tags when the app is in development -->
     <error-page>
         <error-code>404</error-code>
@@ -45,10 +49,10 @@
         <servlet-name>SelectCourseServlet</servlet-name>
         <url-pattern>/SelectCourseServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+<!--    <servlet-mapping>
         <servlet-name>ReviewAcademicServlet</servlet-name>
         <url-pattern>/ReviewAcademicServlet</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>DataOperationsServlet</servlet-name>
         <url-pattern>/DataOperationsServlet</url-pattern>

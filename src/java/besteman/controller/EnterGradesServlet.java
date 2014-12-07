@@ -5,7 +5,9 @@
  */
 package besteman.controller;
 
+import besteman.model.Faculty;
 import besteman.model.Grades;
+import besteman.model.database.DBFaculty;
 import besteman.model.database.DBGrades;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,11 +41,10 @@ public class EnterGradesServlet extends HttpServlet {
         String url = "/index.jsp";
         
         String action = request.getParameter("action");
-        
-        String password = request.getParameter("password");
-        
+                
         HttpSession session = request.getSession();
         
+        String password = request.getParameter("password");
         String term = request.getParameter("term");
         String courseTitle = request.getParameter("courseTitle");
                 
@@ -55,13 +56,19 @@ public class EnterGradesServlet extends HttpServlet {
         
         if (action.equals("Submit"))
         {
-            request.setAttribute("password", password);
+            session.setAttribute("password", password);
             session.setAttribute("term", term);
             session.setAttribute("courseTitle", courseTitle);
             
+            Faculty faculty = new Faculty();
+            faculty = DBFaculty.passwordCheck(password);
+            //add logic here in case of incorrect password
+            
+            String instructor = faculty.getFaculty_name();
+            
 //            request.setAttribute("term", term);
 //            request.setAttribute("courseTitle", courseTitle);
-            //request.setAttribute("instructor", instructor);
+            session.setAttribute("instructor", instructor);
             gradeList.clear();
             gradeList = DBGrades.selectCourseGrade(courseTitle);
             session.setAttribute("gradeList", gradeList);

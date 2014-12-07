@@ -5,14 +5,16 @@
  */
 package besteman.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author freddybeste
  */
-public class Faculty {
-    String faculty_name;
-    String dept;
-    String p_word;
+public class Faculty implements Serializable {
+    private String faculty_name;
+    private String dept;
+    private String p_word;
     
     
     public Faculty(String faculty_name, String dept, String p_word)

@@ -18,7 +18,7 @@
     <c:import url="header.jsp" />
     <body>
         <h2>Grade Entry</h2>
-        <h4>Welcome Professor     </h4>
+        <h4>Welcome Professor <%=session.getAttribute("instructor")%></h4>
         <h4>Term: <%=session.getAttribute("term")%> Course: <%=session.getAttribute("courseTitle")%></h4>
 
         <table>

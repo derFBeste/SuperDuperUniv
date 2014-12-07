@@ -26,7 +26,6 @@ public class DBFaculty {
         
         String query = "SELECT * FROM faculty WHERE p_word = ? ";
         
-        String name = "";
         
         try
         {
@@ -38,11 +37,10 @@ public class DBFaculty {
             if(rs.next())
             {
                 faculty = new Faculty();
-                faculty.setFaculty_name("name");
-                faculty.setDept("dept");
-                faculty.setP_word("p_word");
+                faculty.setFaculty_name(rs.getString("name"));
+                faculty.setDept(rs.getString("dept"));
+                faculty.setP_word(rs.getString("p_word"));
                 
-                name =  faculty.getFaculty_name();
             }
             
             
