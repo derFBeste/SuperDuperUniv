@@ -72,10 +72,10 @@ public class DataOperationsServlet extends HttpServlet {
             else insertMessage = "Course "+insertCourse.getCourseTitle() + " insert failed";
 
             String code = "999999";
-            newGrade = new Grades(code, "Algebra", "Jack Black", "C");
-            insertResultGrade = DBGrades.insertGrades(newGrade);
-            if(insertResultGrade != 0) insertMessage = "Course " + newGrade.getTitle() + " inserted successfully.";
-            else insertMessage = "Course "+ newGrade.getTitle() + " insert failed";
+//            newGrade = new Grades(code, "Algebra", "Jack Black", "C");
+//            insertResultGrade = DBGrades.insertGrades(newGrade);
+//            if(insertResultGrade != 0) insertMessage = "Course " + newGrade.getTitle() + " inserted successfully.";
+//            else insertMessage = "Course "+ newGrade.getTitle() + " insert failed";
             
             
             
@@ -86,12 +86,11 @@ public class DataOperationsServlet extends HttpServlet {
             else selectMessage = "Course " + selectCourseCode + " not selected";
             
             //select grades test
-//            String selectCourseTitle = "Algebra";
-//            String gradeMessage;
-//            ArrayList<Grades> gradeList = new ArrayList<Grades>();
-//            gradeList = DBGrades.selectCourseGrade(selectCourseTitle);
-//            if(gradeList != null) gradeMessage = "Array has been made.";
-//            else gradeMessage = "failed";
+            String gradeMessage;
+            ArrayList<Grades> gradeList = new ArrayList<Grades>();
+            gradeList = DBGrades.selectCourseGrade(code);
+            if(gradeList != null) gradeMessage = "Array has been made.";
+            else gradeMessage = "failed";
             
             
             Course deleteCourse = new Course();
@@ -116,7 +115,7 @@ public class DataOperationsServlet extends HttpServlet {
             out.println(selectMessage + "</br>");
             out.println(deleteMessage + "</br>");
             out.println(selectAllMessage + "</br>");
-//           out.println(gradeMessage + "</br>");
+            out.println(gradeMessage + "</br>");
 
             out.println("</body>");
             out.println("</html>");

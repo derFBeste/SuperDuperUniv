@@ -52,16 +52,16 @@ public class DBGrades {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
-        Statement statement = null;
+        //Statement statement = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM grades WHERE" + "course_code = ?";
+        String query = "SELECT * FROM grades WHERE + course_code = ?";
         
         try
         {
             ps = connection.prepareStatement(query);
-//            statement = connection.createStatement();
-//            rs = statement.executeQuery(query);
+            //statement = connection.createStatement();
+            //rs = statement.executeQuery(query);
             
             
             ps.setString(1, course_code);
@@ -76,9 +76,9 @@ public class DBGrades {
 //                grade.setStudent_name("student_name");
 //                grade.setGrade("grade");
 //                
-                int i = 0;
-                gradeList.add(i, new Grades(course_code, rs.getString("course_title"), rs.getString("student_name"), rs.getString("grade")));
-                i++;
+                //int i = 0;
+                gradeList.add(new Grades(rs.getString("course_code"), rs.getString("title"), rs.getString("student_name"), rs.getString("grade")));
+                //i++;
                 
             }
                 
