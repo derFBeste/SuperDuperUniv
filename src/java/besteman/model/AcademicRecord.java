@@ -14,14 +14,14 @@ import java.io.Serializable;
 public class AcademicRecord implements Serializable {
     private String studentNumber;
     private String studentName;
-    private String courseNumber;
+    private String courseName;
     private String grade;
     
-    public AcademicRecord(String studentNumber, String studentName, String courseNumber, String grade)
+    public AcademicRecord(String studentNumber, String studentName, String courseName, String grade)
     {
         this.studentNumber = studentNumber;
         this.studentName = studentName;
-        this.courseNumber = courseNumber;
+        this.courseName = courseName;
         this.grade = grade;
     }    
     
@@ -51,13 +51,14 @@ public class AcademicRecord implements Serializable {
         this.studentName = studentName;
     }
 
-    public String getCourseNumber() {
-        return courseNumber;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setCourseNumber(String courseNumber) {
-        this.courseNumber = courseNumber;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
+
 
     public String getGrade() {
         return grade;

@@ -32,16 +32,16 @@ public class AcademicRecordsServlet extends HttpServlet {
     {
         String url = "/view/review_academic.jsp";
         
-//        String action = request.getParameter("action");
-//        
-//        if (action.equals("Submit"))
-//        {
-//            url = "/review_academic_results.jsp";
-//        }
-//        else
-//        {
-//            url = "/index.jsp";
-//        }
+        String action = request.getParameter("action");
+        
+        if (action.equals("Submit"))
+        {
+            url = "/review_academic_results.jsp";
+        }
+        else
+        {
+            url = "/index.jsp";
+        }
         
         getServletContext().getRequestDispatcher(url).forward(request, response);
         
