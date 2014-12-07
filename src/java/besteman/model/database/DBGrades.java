@@ -25,14 +25,13 @@ public class DBGrades {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
         
-        String query = "INSERT INTO grades (course_code, title, student_name, grade)" + "VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO grades (title, student_name, grade)" + "VALUES (?, ?, ?)";
         
         try{
             ps = connection.prepareStatement(query);
-            ps.setString(1, grade.getCourse_code());
-            ps.setString(2, grade.getTitle());
-            ps.setString(3, grade.getStudent_name());
-            ps.setString(4, grade.getGrade());
+            ps.setString(1, grade.getTitle());
+            ps.setString(2, grade.getStudent_name());
+            ps.setString(3, grade.getGrade());
             
             return ps.executeUpdate();
           
@@ -47,24 +46,20 @@ public class DBGrades {
         
    }
     
-    public static ArrayList<Grades> selectCourseGrade(String course_code)
+    public static ArrayList<Grades> selectCourseGrade(String title)
     {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
-        //Statement statement = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM grades WHERE + course_code = ?";
+        String query = "SELECT * FROM grades WHERE + title = ?";
         
         try
         {
             ps = connection.prepareStatement(query);
-            //statement = connection.createStatement();
-            //rs = statement.executeQuery(query);
             
-            
-            ps.setString(1, course_code);
+            ps.setString(1, title);
             rs = ps.executeQuery();
             ArrayList<Grades> gradeList = new ArrayList<Grades>();
             Grades grade = null;
@@ -77,7 +72,7 @@ public class DBGrades {
 //                grade.setGrade("grade");
 //                
                 //int i = 0;
-                gradeList.add(new Grades(rs.getString("course_code"), rs.getString("title"), rs.getString("student_name"), rs.getString("grade")));
+                gradeList.add(new Grades(rs.getString("title"), rs.getString("student_name"), rs.getString("grade")));
                 //i++;
                 
             }
@@ -90,7 +85,6 @@ public class DBGrades {
             }
             finally{
                 DBUtil.closeResultSet(rs);
-                //DBUtil.closePreparedStatement(statement);
                 DBUtil.closePreparedStatement(ps);
                 pool.freeConnection(connection);
             }       

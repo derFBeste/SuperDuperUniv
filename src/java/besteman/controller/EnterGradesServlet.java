@@ -9,6 +9,7 @@ import besteman.model.Grades;
 import besteman.model.database.DBGrades;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,6 +50,7 @@ public class EnterGradesServlet extends HttpServlet {
         String student_name = request.getParameter("student_name");
         String grade = request.getParameter("grade");
         
+        ArrayList<Grades> gradeList = new ArrayList<Grades>();
         //String instructor = DBFaculty.getInstructor("password");
         
         if (action.equals("Submit"))
@@ -60,6 +62,9 @@ public class EnterGradesServlet extends HttpServlet {
 //            request.setAttribute("term", term);
 //            request.setAttribute("courseTitle", courseTitle);
             //request.setAttribute("instructor", instructor);
+            gradeList.clear();
+            gradeList = DBGrades.selectCourseGrade(courseTitle);
+            session.setAttribute("gradeList", gradeList);
             
             url = "/view/enter_grades.jsp";
 
@@ -70,8 +75,8 @@ public class EnterGradesServlet extends HttpServlet {
             String title = (String) session.getAttribute("courseTitle");
             request.setAttribute("student_name", student_name);
             request.setAttribute("grade", grade);
-            String course_code = null;
-            Grades newGrade = new Grades(course_code, title, student_name, grade);
+            
+            Grades newGrade = new Grades(title, student_name, grade);
             DBGrades.insertGrades(newGrade);
             
             url = "/view/enter_grades.jsp";

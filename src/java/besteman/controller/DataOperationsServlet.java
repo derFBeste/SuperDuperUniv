@@ -71,11 +71,10 @@ public class DataOperationsServlet extends HttpServlet {
             if(insertResult != 0) insertMessage = "Course" + insertCourse.getCourseTitle() + " inserted successfully.";
             else insertMessage = "Course "+insertCourse.getCourseTitle() + " insert failed";
 
-            String code = "999999";
-//            newGrade = new Grades(code, "Algebra", "Jack Black", "C");
-//            insertResultGrade = DBGrades.insertGrades(newGrade);
-//            if(insertResultGrade != 0) insertMessage = "Course " + newGrade.getTitle() + " inserted successfully.";
-//            else insertMessage = "Course "+ newGrade.getTitle() + " insert failed";
+            newGrade = new Grades("Algebra", "Walter White", "B");
+            insertResultGrade = DBGrades.insertGrades(newGrade);
+            if(insertResultGrade != 0) insertMessage = "Course " + newGrade.getTitle() + " inserted successfully.";
+            else insertMessage = "Course "+ newGrade.getTitle() + " insert failed";
             
             
             
@@ -88,7 +87,7 @@ public class DataOperationsServlet extends HttpServlet {
             //select grades test
             String gradeMessage;
             ArrayList<Grades> gradeList = new ArrayList<Grades>();
-            gradeList = DBGrades.selectCourseGrade(code);
+            gradeList = DBGrades.selectCourseGrade("Algebra");
             if(gradeList != null) gradeMessage = "Array has been made.";
             else gradeMessage = "failed";
             

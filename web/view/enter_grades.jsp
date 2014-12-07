@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="besteman.model.Grades"%>
+<%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="styles/main.css" type="text/css"/>
@@ -27,12 +29,20 @@
                 </tr>
             </thead>
             <tbody>
+                <%
+                    ArrayList<Grades> gradeList = (ArrayList<Grades>) session.getAttribute("gradeList");
+                    
+                    for (int i = 0; i < gradeList.size(); i++){
+                %>
 
-
-
+                <tr>
+                    <td><%=gradeList.get(i).getStudent_name()%></td>
+                    <td><%=gradeList.get(i).getGrade()%></td>                    
+                </tr>
+                
             </tbody>
 
-
+            <% } %>
 
 
         </table>
