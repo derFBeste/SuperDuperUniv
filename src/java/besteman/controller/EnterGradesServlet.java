@@ -5,6 +5,8 @@
  */
 package besteman.controller;
 
+import besteman.model.Grades;
+import besteman.model.database.DBGrades;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -40,15 +42,35 @@ public class EnterGradesServlet extends HttpServlet {
         String term = request.getParameter("term");
         String courseTitle = request.getParameter("courseTitle");
         
+        String student_name = request.getParameter("student_name");
+        String grade = request.getParameter("grade");
+        
+        //String instructor = DBFaculty.getInstructor("password");
+        
         if (action.equals("Submit"))
         {
             request.setAttribute("password", password);
             request.setAttribute("term", term);
             request.setAttribute("courseTitle", courseTitle);
             
+            //request.setAttribute("instructor", instructor);
+            
             url = "/view/enter_grades.jsp";
 
         }
+        
+        if (action.equals("Enter Grade"))
+        {
+            
+            request.setAttribute("student_name", student_name);
+            request.setAttribute("grade", grade);
+            
+            Grades newGrade = new Grades(courseTitle, student_name, grade);
+            DBGrades.insertGrades(newGrade);
+            
+            url = "/view/enter_grades.jsp";
+        }
+            
         else
         {
             url = "/view/index.jsp";

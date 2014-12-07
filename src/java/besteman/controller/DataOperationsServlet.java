@@ -6,7 +6,9 @@
 package besteman.controller;
 
 import besteman.model.Course;
+import besteman.model.Grades;
 import besteman.model.database.DBCourse;
+import besteman.model.database.DBGrades;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -46,6 +48,10 @@ public class DataOperationsServlet extends HttpServlet {
         Course insertCourse;
         String insertCourseCode = "111113";
         
+        Grades newGrade;
+        int insertResultGrade;
+        String insertGradeTitle = "Drawing I";
+        
         String selectMessage;
         int selectResult;
         String selectCourseCode = "111112";
@@ -65,6 +71,13 @@ public class DataOperationsServlet extends HttpServlet {
             if(insertResult != 0) insertMessage = "Course" + insertCourse.getCourseTitle() + " inserted successfully.";
             else insertMessage = "Course "+insertCourse.getCourseTitle() + " insert failed";
 
+            newGrade = new Grades(insertGradeTitle, "Jack Black", "C");
+            insertResultGrade = DBGrades.insertGrades(newGrade);
+            if(insertResultGrade != 0) insertMessage = "Course " + newGrade.getTitle() + " inserted successfully.";
+            else insertMessage = "Course "+ newGrade.getTitle() + " insert failed";
+            
+            
+            
             //possibly have to change selectCourse to selectResult
             Course selectCourse = new Course();
             selectCourse = DBCourse.selectCourse(selectCourseCode);

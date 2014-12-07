@@ -19,15 +19,13 @@
         <br>
         <form action="enterGradesServlet" method="post"> 
             <label>Please enter your password: </label>
-            <input type="text" name="password" required=""><br><br>
+            <input type="password" name="password" required><br><br>
             <!--<input type="submit" name="action" value="submit"><br><br>--> 
             <label>Term: </label>
-            <input type="text" name="term" required=""><br>
+            <input type="text" name="term" required><br>
             <label>Course Title: </label>
-            <input type="text" name="courseTitle"><br> 
-        </form>
-
-        <form action="enterGradesServlet" method="post">    
+            <input type="text" name="courseTitle" required><br> 
+  
             <input class="button" type="submit" name="action" value="Submit">
             <input class="button" type="submit" name="action" value="Go Back">
         </form>

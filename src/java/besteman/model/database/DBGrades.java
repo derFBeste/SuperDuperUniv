@@ -25,14 +25,13 @@ public class DBGrades {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
         
-        String query = "INSERT INTO grades (course_code, title, student_name, grade)  " + "VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO grades (course_title, student_name, grade)" + "VALUES (?, ?, ?)";
         
         try{
             ps = connection.prepareStatement(query);
-            ps.setString(1, grade.getCourse_code());
-            ps.setString(2, grade.getTitle());
-            ps.setString(3, grade.getStudent_name());
-            ps.setString(4, grade.getGrade());
+            ps.setString(1, grade.getTitle());
+            ps.setString(2, grade.getStudent_name());
+            ps.setString(3, grade.getGrade());
             
             return ps.executeUpdate();
             
@@ -47,7 +46,6 @@ public class DBGrades {
                 pool.freeConnection(connection);
             }
         
-        
-    }
+   }
     
 }
