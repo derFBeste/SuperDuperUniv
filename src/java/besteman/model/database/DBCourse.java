@@ -70,17 +70,7 @@ public class DBCourse {
                     
                     courseList.add(i, new Course(rs.getString("course_code"), rs.getString("dept"), rs.getString("course_number"), rs.getString("title"),
                             rs.getString("day_and_time"), rs.getString("room"), rs.getString("instructor"), rs.getInt("credits")));
-                    
-                    
-//                    course.setCourseCode(rs.getString("course_code"));
-//                    course.setCourseDept(rs.getString("dept"));
-//                    course.setCourseNumber(rs.getString("course_number"));
-//                    course.setCourseTitle(rs.getString("title"));
-//                    course.setCourseDayNTime(rs.getString("day_and_time"));
-//                    course.setCourseRoom(rs.getString("room"));
-//                    course.setCourseInstructor(rs.getString("instructor"));
-//                    course.setCourseCredit(rs.getInt("credits"));
-//                    
+                                      
                     i++;
                 }
                 

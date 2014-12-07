@@ -17,7 +17,7 @@
     <body>
         <h2>Grade Entry</h2>
         <h4>Welcome Professor     </h4>
-        <h4>Term: <%=request.getAttribute("term")%> Course: <%=request.getAttribute("courseTitle")%></h4>
+        <h4>Term: <%=session.getAttribute("term")%> Course: <%=session.getAttribute("courseTitle")%></h4>
 
         <table>
             <thead>

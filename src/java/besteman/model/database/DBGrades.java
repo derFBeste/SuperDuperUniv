@@ -25,18 +25,17 @@ public class DBGrades {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
         
-        String query = "INSERT INTO grades (course_title, student_name, grade)" + "VALUES (?, ?, ?)";
+        String query = "INSERT INTO grades (course_code, title, student_name, grade)" + "VALUES (?, ?, ?, ?)";
         
         try{
             ps = connection.prepareStatement(query);
-            ps.setString(1, grade.getTitle());
-            ps.setString(2, grade.getStudent_name());
-            ps.setString(3, grade.getGrade());
+            ps.setString(1, grade.getCourse_code());
+            ps.setString(2, grade.getTitle());
+            ps.setString(3, grade.getStudent_name());
+            ps.setString(4, grade.getGrade());
             
             return ps.executeUpdate();
-            
-            
-            
+          
         }
                      catch (SQLException e) {
                 System.out.println(e);
@@ -47,5 +46,55 @@ public class DBGrades {
             }
         
    }
+    
+    public static ArrayList<Grades> selectCourseGrade(String course_code)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        Statement statement = null;
+        ResultSet rs = null;
+        
+        String query = "SELECT * FROM grades WHERE" + "course_code = ?";
+        
+        try
+        {
+            ps = connection.prepareStatement(query);
+//            statement = connection.createStatement();
+//            rs = statement.executeQuery(query);
+            
+            
+            ps.setString(1, course_code);
+            rs = ps.executeQuery();
+            ArrayList<Grades> gradeList = new ArrayList<Grades>();
+            Grades grade = null;
+            
+            while(rs.next())
+            {
+//                grade = new Grades();
+//                grade.setTitle(rs.getString(courseTitle));
+//                grade.setStudent_name("student_name");
+//                grade.setGrade("grade");
+//                
+                int i = 0;
+                gradeList.add(i, new Grades(course_code, rs.getString("course_title"), rs.getString("student_name"), rs.getString("grade")));
+                i++;
+                
+            }
+                
+            return gradeList;
+            
+        }catch (SQLException e) {
+                System.out.println(e);
+                return null;
+            }
+            finally{
+                DBUtil.closeResultSet(rs);
+                //DBUtil.closePreparedStatement(statement);
+                DBUtil.closePreparedStatement(ps);
+                pool.freeConnection(connection);
+            }       
+        }
+   
     
 }

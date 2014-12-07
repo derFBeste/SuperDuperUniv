@@ -11,18 +11,34 @@ package besteman.model;
  */
 public class Grades {
     
-    String title;
-    String student_name;
-    String grade;
+    private String course_code;
+    private String title;
+    private String student_name;
+    private String grade;
     
-    public Grades(String title, String student_name, String grade)
+    public Grades(String course_code, String title, String student_name, String grade)
     {
+        this.course_code = course_code;
         this.title = title;
         this.student_name = student_name;
         this.grade = grade;
     }
 
+    public Grades()
+    {
+        
+    }
 
+    public String getCourse_code() {
+        return course_code;
+    }
+
+    public void setCourse_code(String course_code) {
+        this.course_code = course_code;
+    }
+
+    
+    
     public String getStudent_name() {
         return student_name;
     }

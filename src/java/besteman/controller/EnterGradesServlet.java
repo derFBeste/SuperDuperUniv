@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,9 +40,12 @@ public class EnterGradesServlet extends HttpServlet {
         String action = request.getParameter("action");
         
         String password = request.getParameter("password");
+        
+        HttpSession session = request.getSession();
+        
         String term = request.getParameter("term");
         String courseTitle = request.getParameter("courseTitle");
-        
+                
         String student_name = request.getParameter("student_name");
         String grade = request.getParameter("grade");
         
@@ -50,22 +54,24 @@ public class EnterGradesServlet extends HttpServlet {
         if (action.equals("Submit"))
         {
             request.setAttribute("password", password);
-            request.setAttribute("term", term);
-            request.setAttribute("courseTitle", courseTitle);
+            session.setAttribute("term", term);
+            session.setAttribute("courseTitle", courseTitle);
             
+//            request.setAttribute("term", term);
+//            request.setAttribute("courseTitle", courseTitle);
             //request.setAttribute("instructor", instructor);
             
             url = "/view/enter_grades.jsp";
 
         }
         
-        if (action.equals("Enter Grade"))
+        else if (action.equals("Enter Grade"))
         {
-            
+            String title = (String) session.getAttribute("courseTitle");
             request.setAttribute("student_name", student_name);
             request.setAttribute("grade", grade);
-            
-            Grades newGrade = new Grades(courseTitle, student_name, grade);
+            String course_code = null;
+            Grades newGrade = new Grades(course_code, title, student_name, grade);
             DBGrades.insertGrades(newGrade);
             
             url = "/view/enter_grades.jsp";

@@ -71,7 +71,8 @@ public class DataOperationsServlet extends HttpServlet {
             if(insertResult != 0) insertMessage = "Course" + insertCourse.getCourseTitle() + " inserted successfully.";
             else insertMessage = "Course "+insertCourse.getCourseTitle() + " insert failed";
 
-            newGrade = new Grades(insertGradeTitle, "Jack Black", "C");
+            String code = "999999";
+            newGrade = new Grades(code, "Algebra", "Jack Black", "C");
             insertResultGrade = DBGrades.insertGrades(newGrade);
             if(insertResultGrade != 0) insertMessage = "Course " + newGrade.getTitle() + " inserted successfully.";
             else insertMessage = "Course "+ newGrade.getTitle() + " insert failed";
@@ -84,6 +85,15 @@ public class DataOperationsServlet extends HttpServlet {
             if(selectCourse != null) selectMessage = "Course " + selectCourseCode + " selected";
             else selectMessage = "Course " + selectCourseCode + " not selected";
             
+            //select grades test
+//            String selectCourseTitle = "Algebra";
+//            String gradeMessage;
+//            ArrayList<Grades> gradeList = new ArrayList<Grades>();
+//            gradeList = DBGrades.selectCourseGrade(selectCourseTitle);
+//            if(gradeList != null) gradeMessage = "Array has been made.";
+//            else gradeMessage = "failed";
+            
+            
             Course deleteCourse = new Course();
             deleteResult = DBCourse.deleteCourse(deleteCourseCode);
             if(deleteResult != 0) deleteMessage = "Course " + deleteCourse.getCourseTitle() + " was deleted.";
@@ -91,7 +101,7 @@ public class DataOperationsServlet extends HttpServlet {
             
             ArrayList<Course> courseList = new ArrayList<Course>();
             courseList = DBCourse.selectAllCourses();
-            if(courseList != null) selectAllMessage = "Arrays have been made.";
+            if(courseList != null) selectAllMessage = "Array has been made.";
             else selectAllMessage = "failed";
             
             /* TODO output your page here. You may use following sample code. */
@@ -106,6 +116,7 @@ public class DataOperationsServlet extends HttpServlet {
             out.println(selectMessage + "</br>");
             out.println(deleteMessage + "</br>");
             out.println(selectAllMessage + "</br>");
+//           out.println(gradeMessage + "</br>");
 
             out.println("</body>");
             out.println("</html>");
