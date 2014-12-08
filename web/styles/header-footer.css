@@ -9,6 +9,14 @@ and open the template in the editor.
 */
 
 
+nav ul li ul {
+    display: none;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
 
 
 div.container{

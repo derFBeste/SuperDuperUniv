@@ -26,19 +26,25 @@
         <a href= "DataOperationServlet?homepage=on">Data Operations</a>-->
         
                     <form action="actionControllerServlet" method="post">
-
+<!--                        <table>-->
+                            <tr>
+                                <th>    
                         <h3>Student Menu:</h3>
                         <input class="button" type="submit" name="action" value="Select Courses"></br>
                         <input class="button" type="submit" name="action" value="Make a Payment"></br>
                         <input class="button" type="submit" name="action" value="Review Financial Records"></br>
                         <input class="button" type="submit" name="action" value="Review Academic Records"></br></br>
-                        
+                        </th>
+                        <th>
                         <h3>Instructors:</h3>
                         <input class="button" type="submit" name="action" value="Enter Grades"></br></br>
-                        
+                        </th>
+                        <th>
                         <h3>Administration:</h3>
                         <input class="button" type="submit" name="action" value="Data Operations"></br>
-                        
+                        </th>
+                        </tr>
+<!--                        </table>-->
                     </form>
 
         <c:import url="footer.jsp" />
