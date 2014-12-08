@@ -22,6 +22,10 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>EnterGradesServlet</servlet-name>
+        <url-pattern>/EnterGradesServlet</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>EnterGradesServlet</servlet-name>
         <url-pattern>/enterGradesServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

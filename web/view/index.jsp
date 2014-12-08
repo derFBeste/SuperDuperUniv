@@ -31,9 +31,9 @@
                                 <th>    
                         <h3>Student Menu:</h3>
                         <input class="button" type="submit" name="action" value="Select Courses"></br>
+                        <input class="button" type="submit" name="action" value="Review Academic Records"></br>
                         <input class="button" type="submit" name="action" value="Make a Payment"></br>
-                        <input class="button" type="submit" name="action" value="Review Financial Records"></br>
-                        <input class="button" type="submit" name="action" value="Review Academic Records"></br></br>
+                        <input class="button" type="submit" name="action" value="Review Financial Records"></br></br>
                         </th>
                         <th>
                         <h3>Instructors:</h3>

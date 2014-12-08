@@ -6,13 +6,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<link rel="stylesheet" href="styles/main.css" type="text/css"/>
 
 <html>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>SDU: Academic Records</title>
-    <c:import url="header.jsp" />
+    <head>    
+        <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>SDU: Academic Records</title>
+        <c:import url="header.jsp" />
+    </head>
 
     <body>
         <form action="AcademicRecordsServlet" method="post">
@@ -23,8 +24,8 @@
         <form action="AcademicRecordsServlet" method="post">
             <input type="submit" name="action" value="Go Back">
         </form>
-    <c:import url="footer.jsp" />
+        <c:import url="footer.jsp" />
 
 
-</body>
+    </body>
 </html>

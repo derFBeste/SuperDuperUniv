@@ -37,12 +37,13 @@ public class AcademicRecordsServlet extends HttpServlet {
             throws ServletException, IOException 
     {
         url = "/view/review_academic.jsp";
+        
         HttpSession session = request.getSession();
         String action = request.getParameter("action");
-        String student_number = request.getParameter("student_number");
         
         if (action.equals("Submit"))
         {
+            String student_number = request.getParameter("student_number");
             request.setAttribute("student_number", student_number);
             StudentInfo student = new StudentInfo();
             student = DBStudent.selectStudent(student_number);

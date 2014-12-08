@@ -17,7 +17,7 @@
         <h2>Grade Entry</h2>
 
         <br>
-        <form action="enterGradesServlet" method="post"> 
+        <form action="EnterGradesServlet" method="post"> 
             <label>Please enter your password: </label>
             <input type="password" name="password" required><br><br>
             <!--<input type="submit" name="action" value="submit"><br><br>--> 
