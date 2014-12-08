@@ -5,67 +5,76 @@
  */
 package besteman.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author besteman
  */
-public class StudentInfo {
+public class StudentInfo implements Serializable{
     
-    private String student_number;
-    private String student_name;
-    private String address;
-    private String zip;
-    private String phone_number;
+    private String studentNumber;
+    private String studentName;
+    private String studentAddress;
+    private String studentZip;
+    private String studentPhn;
     
-    public StudentInfo(String student_number, String student_name, String address, String zip, String phone_number)
+    public StudentInfo(String studentNumber, String studentName, String studentAddress, String studentZip, String studentPhn)
     {
-        this.student_number = student_number;
-        this.student_name = student_name;
-        this.address = address;
-        this.zip = zip;
-        this.phone_number = phone_number;
+        this.studentNumber = studentNumber;
+        this.studentName = studentName;
+        this.studentAddress = studentAddress;
+        this.studentZip = studentZip;
+        this.studentPhn = studentPhn;
         
     }
 
-    public String getStudent_number() {
-        return student_number;
+    public StudentInfo()
+    {
+        
+    }
+    
+    public String getStudentNumber() {
+        return studentNumber;
     }
 
-    public void setStudent_number(String student_number) {
-        this.student_number = student_number;
+    public void setStudentNumber(String studentNumber) {
+        this.studentNumber = studentNumber;
     }
 
-    public String getStudent_name() {
-        return student_name;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setStudent_name(String student_name) {
-        this.student_name = student_name;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStudentAddress() {
+        return studentAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStudentAddress(String studentAddress) {
+        this.studentAddress = studentAddress;
     }
 
-    public String getZip() {
-        return zip;
+    public String getStudentZip() {
+        return studentZip;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setStudentZip(String studentZip) {
+        this.studentZip = studentZip;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getStudentPhn() {
+        return studentPhn;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setStudentPhn(String studentPhn) {
+        this.studentPhn = studentPhn;
     }
+
+
     
     
 }
