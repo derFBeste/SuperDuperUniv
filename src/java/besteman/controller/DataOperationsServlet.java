@@ -5,12 +5,16 @@
  */
 package besteman.controller;
 
+import besteman.model.AcademicRecord;
 import besteman.model.Course;
 import besteman.model.Faculty;
 import besteman.model.Grades;
+import besteman.model.StudentInfo;
+import besteman.model.database.DBAcademicRecord;
 import besteman.model.database.DBCourse;
 import besteman.model.database.DBFaculty;
 import besteman.model.database.DBGrades;
+import besteman.model.database.DBStudent;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -86,6 +90,13 @@ public class DataOperationsServlet extends HttpServlet {
             if(faculty != null) facultyMessage = "Faculty " + faculty.getFaculty_name() + " selected";
             else facultyMessage = "failed";
             
+            String studentMessage;
+            String studNumber = "1111";
+            StudentInfo student = new StudentInfo();
+            student = DBStudent.selectStudent(studNumber);
+            if(student != null) studentMessage = "Student " + student.getStudentName() + " selected.";
+            else studentMessage = "failed.";
+            
             //possibly have to change selectCourse to selectResult
             Course selectCourse = new Course();
             selectCourse = DBCourse.selectCourse(selectCourseCode);
@@ -98,6 +109,13 @@ public class DataOperationsServlet extends HttpServlet {
             gradeList = DBGrades.selectCourseGrade("Algebra");
             if(gradeList != null) gradeMessage = "Array has been made.";
             else gradeMessage = "failed";
+            
+            String recordMessage;
+            String studentNumber = "1111";
+            ArrayList<AcademicRecord> record = new ArrayList<AcademicRecord>();
+            record = DBAcademicRecord.selectRecord(studentNumber);
+            if(record != null) recordMessage = "Array has been made.";
+            else recordMessage = "FAILED.";
             
             
             Course deleteCourse = new Course();
@@ -124,6 +142,8 @@ public class DataOperationsServlet extends HttpServlet {
             out.println(selectAllMessage + "</br>");
             out.println(gradeMessage + "</br>");
             out.println(facultyMessage + "</br>");
+            out.println(studentMessage + "</br>");
+            out.println(recordMessage + "</br>");
             out.println("</body>");
             out.println("</html>");
         }

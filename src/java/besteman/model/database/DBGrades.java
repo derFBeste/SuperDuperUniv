@@ -53,7 +53,7 @@ public class DBGrades {
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM grades WHERE + title = ?";
+        String query = "SELECT * FROM grades WHERE title = ?";
         
         try
         {

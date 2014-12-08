@@ -63,7 +63,7 @@ public class ActionControllerServlet extends HttpServlet {
         
         else if (action.equals("Review Academic Records"))
         {
-            url = "/view/review_academic.jsp";
+            url = "/AcademicRecordsServlet";
 
         }
 

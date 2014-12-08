@@ -19,13 +19,12 @@ public class DBStudent {
     
     public static StudentInfo selectStudent(String studentNumber)
     {
-        StudentInfo student = null;
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM student_info WHERE studentNumber = ?";
+        String query = "SELECT * FROM student_info WHERE student_number = ? ";
         
 
         try
@@ -33,9 +32,11 @@ public class DBStudent {
             ps = connection.prepareStatement(query);
             ps.setString(1, studentNumber);
             rs = ps.executeQuery();
-           
+            StudentInfo student = null;
+
         if(rs.next())
         {
+            student = new StudentInfo();
             student.setStudentNumber(rs.getString("student_number"));
             student.setStudentName(rs.getString("student_name"));
             student.setStudentAddress(rs.getString("student_address"));

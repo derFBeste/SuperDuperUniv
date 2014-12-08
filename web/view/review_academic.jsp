@@ -15,12 +15,12 @@
     <c:import url="header.jsp" />
 
     <body>
-        <form action="ReviewAcademicServlet" method="post">
+        <form action="AcademicRecordsServlet" method="post">
             <h2>Academic Records:</h2>
             Student Number: <input type="text" name="student_number" required>
             <input type="submit" name="action" value="Submit"><br><br>
         </form>
-        <form action="ReviewAcademicServlet" method="post">
+        <form action="AcademicRecordsServlet" method="post">
             <input type="submit" name="action" value="Go Back">
         </form>
     <c:import url="footer.jsp" />

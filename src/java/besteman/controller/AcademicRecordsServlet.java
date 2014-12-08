@@ -5,19 +5,25 @@
  */
 package besteman.controller;
 
+import besteman.model.StudentInfo;
+import besteman.model.database.DBStudent;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author freddybeste
  */
-public class AcademicRecordsServlet extends HttpServlet {
 
+@WebServlet(name = "AcademicRecordsServlet", urlPatterns = {"/AcademicRecordsServlet"})
+public class AcademicRecordsServlet extends HttpServlet {
+    String url;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,17 +36,27 @@ public class AcademicRecordsServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        String url = "/view/review_academic.jsp";
-        
+        url = "/view/review_academic.jsp";
+        HttpSession session = request.getSession();
         String action = request.getParameter("action");
+        String student_number = request.getParameter("student_number");
         
         if (action.equals("Submit"))
         {
-            url = "/review_academic_results.jsp";
+            request.setAttribute("student_number", student_number);
+            StudentInfo student = new StudentInfo();
+            student = DBStudent.selectStudent(student_number);
+            
+            String studentNumber = student.getStudentNumber();
+            String studentName = student.getStudentName();
+            
+            session.setAttribute("studentNumber", studentNumber);
+            session.setAttribute("student", student);
+            url = "/view/academic_results.jsp";
         }
         else
         {
-            url = "/index.jsp";
+            url = "/view/review_academic.jsp";
         }
         
         getServletContext().getRequestDispatcher(url).forward(request, response);

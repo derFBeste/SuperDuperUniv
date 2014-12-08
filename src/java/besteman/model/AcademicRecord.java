@@ -13,27 +13,29 @@ import java.io.Serializable;
  */
 public class AcademicRecord implements Serializable {
     private String studentNumber;
-    private String studentName;
-    private String courseName;
+    private String instructor;
+    private String courseTitle;
+    private String dayNtime;
+    private String term;
+    private int credits;
     private String grade;
     
-    public AcademicRecord(String studentNumber, String studentName, String courseName, String grade)
+    public AcademicRecord(String studentNumber, String courseTitle, String instructor, String dayNtime, String term, int credits, String grade)
     {
         this.studentNumber = studentNumber;
-        this.studentName = studentName;
-        this.courseName = courseName;
+        this.courseTitle = courseTitle;
+        this.instructor = instructor;
+        this.dayNtime = dayNtime;
+        this.term = term;
+        this.credits = credits;
         this.grade = grade;
     }    
     
-    public AcademicRecord(String studentNumber, String studentName, Course course)
-    {
-        
-    }
     
-        public AcademicRecord()
-        {
-            
-        }
+    public AcademicRecord()
+    {
+
+    }
 
     public String getStudentNumber() {
         return studentNumber;
@@ -43,22 +45,45 @@ public class AcademicRecord implements Serializable {
         this.studentNumber = studentNumber;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public String getInstructor() {
+        return instructor;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setInstructor(String instructor) {
+        this.instructor = instructor;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getCourseTitle() {
+        return courseTitle;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setCourseTitle(String courseTitle) {
+        this.courseTitle = courseTitle;
     }
 
+    public String getDayNtime() {
+        return dayNtime;
+    }
+
+    public void setDayNtime(String dayNtime) {
+        this.dayNtime = dayNtime;
+    }
+
+    public String getTerm() {
+        return term;
+    }
+
+    public void setTerm(String term) {
+        this.term = term;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
 
     public String getGrade() {
         return grade;
@@ -67,8 +92,6 @@ public class AcademicRecord implements Serializable {
     public void setGrade(String grade) {
         this.grade = grade;
     }
-
-
     
     
 }
