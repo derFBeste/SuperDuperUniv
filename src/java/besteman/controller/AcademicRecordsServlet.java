@@ -58,6 +58,12 @@ public class AcademicRecordsServlet extends HttpServlet {
             session.setAttribute("studentNumber", studentNumber);
             session.setAttribute("student", student);
             
+            int totalCredits = DBAcademicRecord.getTotalCredits(studentNumber);
+            session.setAttribute("totalCredits", totalCredits);
+            
+            double gpa = DBAcademicRecord.getGPA(studentNumber);
+            session.setAttribute("gpa", gpa);
+            
             record.clear();
             record = DBAcademicRecord.selectRecord(studentNumber);
             session.setAttribute("record", record);

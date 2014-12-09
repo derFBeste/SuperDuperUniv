@@ -22,7 +22,7 @@
         <form action="AcademicRecordsServlet" method="post">
             <h2>Academic Records:</h2>
             <h4>Student Number:  ${student.studentNumber}  Name:  ${student.studentName}</h4>
-            <h4>GPA:      Credits:    </h4>
+            <h4>GPA:  ${gpa}    Credits:  ${totalCredits} </h4>
             <table>  
                 <thead>
                     <tr>
