@@ -4,6 +4,8 @@
     Author     : freddybeste
 --%>
 
+<%@page import="besteman.model.AcademicRecord"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="besteman.model.StudentInfo"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="utf-8"%>
@@ -18,12 +20,7 @@
 
     <body>
         <form action="AcademicRecordsServlet" method="post">
-            <h2>Academic Records:</h2><br>
-            <%
-                
-                
-            %>
-            
+            <h2>Academic Records:</h2>
             <h4>Student Number:  ${student.studentNumber}  Name:  ${student.studentName}</h4>
             <h4>GPA:      Credits:    </h4>
             <table>  
@@ -33,13 +30,31 @@
                         <th>Instructor</th>
                         <th>Days & Time</th>
                         <th>Grade</th>
+                        <th>Credits</th>
                     </tr>
                 </thead>            
-            
+                <tbody>
+                    <%                      
+                        ArrayList<AcademicRecord> record = (ArrayList<AcademicRecord>) session.getAttribute("record");
+                        if (record != null) {
+                            for (int i = 0; i < record.size(); i++){                       
+                    %>
+                    <tr>
+                        <th><%=record.get(i).getCourseTitle()%></th>
+                        <th><%=record.get(i).getInstructor()%></th>
+                        <th><%=record.get(i).getDayNtime()%></th>
+                        <th><%=record.get(i).getGrade()%></th>
+                        <th><%=record.get(i).getCredits()%></th>                        
+                    </tr>
+
+
+                    <%  }
+                        
+                    }%>
+                </tbody>
             </table>
         </form>
-    <c:import url="footer.jsp" />
+        <c:import url="footer.jsp" />
 
-
-</body>
+    </body>
 </html>

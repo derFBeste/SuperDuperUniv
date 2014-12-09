@@ -40,7 +40,7 @@ public class EnterGradesServlet extends HttpServlet {
     {
         String url = "/index.jsp";
         
-        String action = request.getParameter("action");
+        //String action = request.getParameter("action");
                 
         HttpSession session = request.getSession();
         
@@ -54,7 +54,7 @@ public class EnterGradesServlet extends HttpServlet {
         ArrayList<Grades> gradeList = new ArrayList<Grades>();
         //String instructor = DBFaculty.getInstructor("password");
         
-        if (action.equals("Submit"))
+        if (request.getParameter("submit") != null)
         {
             session.setAttribute("password", password);
             session.setAttribute("term", term);
@@ -77,7 +77,7 @@ public class EnterGradesServlet extends HttpServlet {
 
         }
         
-        else if (action.equals("Enter Grade"))
+        else if (request.getParameter("enter_grade") != null)
         {
             String title = (String) session.getAttribute("courseTitle");
             request.setAttribute("student_name", student_name);
@@ -91,7 +91,7 @@ public class EnterGradesServlet extends HttpServlet {
             
         else
         {
-            url = "/view/index.jsp";
+            url = "/view/enter_grades_portal.jsp";
         }
         
         getServletContext().getRequestDispatcher(url).forward(request, response);

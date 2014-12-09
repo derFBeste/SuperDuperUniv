@@ -54,7 +54,7 @@
             <label>Grade: </label>
             <input type="text" name="grade" required>
 
-            <input class="button" type="submit" name="action" value="Enter Grade">
+            <input class="button" type="submit" name="enter_grade" value="Enter Grade">
         </form>
 
         <c:import url="footer.jsp" />

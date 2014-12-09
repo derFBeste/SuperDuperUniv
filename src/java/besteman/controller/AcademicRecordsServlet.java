@@ -5,10 +5,13 @@
  */
 package besteman.controller;
 
+import besteman.model.AcademicRecord;
 import besteman.model.StudentInfo;
+import besteman.model.database.DBAcademicRecord;
 import besteman.model.database.DBStudent;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +26,8 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "AcademicRecordsServlet", urlPatterns = {"/AcademicRecordsServlet"})
 public class AcademicRecordsServlet extends HttpServlet {
+    
+    ArrayList<AcademicRecord> record = new ArrayList<AcademicRecord>();
     String url;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,20 +44,28 @@ public class AcademicRecordsServlet extends HttpServlet {
         url = "/view/review_academic.jsp";
         
         HttpSession session = request.getSession();
-        String action = request.getParameter("action");
         
-        if (action.equals("Submit"))
+        if (request.getParameter("student_number") != null)
         {
             String student_number = request.getParameter("student_number");
-            request.setAttribute("student_number", student_number);
+            session.setAttribute("student_number", student_number);
+            
             StudentInfo student = new StudentInfo();
             student = DBStudent.selectStudent(student_number);
             
             String studentNumber = student.getStudentNumber();
             String studentName = student.getStudentName();
-            
             session.setAttribute("studentNumber", studentNumber);
             session.setAttribute("student", student);
+            
+            record.clear();
+            record = DBAcademicRecord.selectRecord(studentNumber);
+            session.setAttribute("record", record);
+            
+            
+            
+            //session.setAttribute("totalCredits", totalCredits);
+            
             url = "/view/academic_results.jsp";
         }
         else
@@ -63,6 +76,15 @@ public class AcademicRecordsServlet extends HttpServlet {
         getServletContext().getRequestDispatcher(url).forward(request, response);
         
     }
+    
+//    public static int addCredits(int credits)
+//    {
+//        int totalCredits = 0;
+//        
+//        totalCredits = credits++;
+//        
+//        return totalCredits;
+//    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

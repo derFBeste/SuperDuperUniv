@@ -26,8 +26,7 @@
             <label>Course Title: </label>
             <input type="text" name="courseTitle" required><br> 
   
-            <input class="button" type="submit" name="action" value="Submit">
-            <input class="button" type="submit" name="action" value="Go Back">
+            <input class="button" type="submit" name="submit" value="Submit">
         </form>
         <c:import url="footer.jsp" />
 
