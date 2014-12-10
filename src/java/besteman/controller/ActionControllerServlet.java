@@ -51,16 +51,6 @@ public class ActionControllerServlet extends HttpServlet {
             
         }
         
-        else if (action.equals("Make a Payment"))
-        {
-            url = "/view/payment_message.jsp";
-        }
-        
-        else if (action.equals("Review Financial Records"))
-        {
-            url = "/view/review_financial_message.jsp";
-        }
-        
         else if (action.equals("Review Academic Records"))
         {
             url = "/AcademicRecordsServlet";
