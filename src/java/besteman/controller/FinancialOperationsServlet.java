@@ -8,15 +8,21 @@ package besteman.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Fred Besteman
+ * @author freddybeste
  */
-public class ActionControllerServlet extends HttpServlet {
+@WebServlet(name = "FinancialOperationsServlet", urlPatterns = {"/FinancialOperationsServlet"})
+public class FinancialOperationsServlet extends HttpServlet {
+    
+        String url;
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,39 +33,28 @@ public class ActionControllerServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        
+        HttpSession session = request.getSession();
+        String name = "Bob Swami";
+        
+        if (request.getParameter("make_payment") != null)
+        {
+            response.sendRedirect("http://localhost:8888/SuperDuperUniv/payment.php");
+        }
+        else if (request.getParameter("view_records") != null)
+        {
+            response.sendRedirect("http://localhost:8888/SuperDuperUniv/financial_result.php");
+            
+        }      
+        else
+            response.sendRedirect("http://localhost:8888/SuperDuperUniv/financial_portal.php");
 
-        String url = "/view/index.jsp";
         
-        String action= request.getParameter("action");
-        
-        
-        if (action.equals("Select Courses"))
-        {            
-            url = "/SelectCourseServlet";   
-        }
-        
-        else if (action.equals("Review Academic Records"))
-        {
-            url = "/AcademicRecordsServlet";
-        }
 
-        else if (action.equals("Enter Grades"))
-        {
-            url = "/view/enter_grades_portal.jsp";
-        }
-                
-        else if (action.equals("Data Operations"))
-        {
-            url = "/DataOperationsServlet";
-        }
-        getServletContext()
-                .getRequestDispatcher(url)
-                .forward(request, response);
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -74,7 +69,7 @@ public class ActionControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -85,11 +80,11 @@ public class ActionControllerServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        processRequest(request, response);
-//    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
 
     /**
      * Returns a short description of the servlet.

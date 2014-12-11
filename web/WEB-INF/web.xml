@@ -24,7 +24,7 @@
         <servlet-name>EnterGradesServlet</servlet-name>
         <url-pattern>/EnterGradesServlet</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>EnterGradesServlet</servlet-name>
         <url-pattern>/enterGradesServlet</url-pattern>
     </servlet-mapping>
@@ -49,17 +49,25 @@
         <exception-type>java.lang.Throwable</exception-type>
         <location>/error_java.jsp</location>
     </error-page>
+    <servlet>
+        <servlet-name>FinancialOperationsServlet</servlet-name>
+        <servlet-class>besteman.controller.FinancialOperationsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SelectCourseServlet</servlet-name>
         <url-pattern>/SelectCourseServlet</url-pattern>
     </servlet-mapping>
-<!--    <servlet-mapping>
+    <!--    <servlet-mapping>
         <servlet-name>ReviewAcademicServlet</servlet-name>
         <url-pattern>/ReviewAcademicServlet</url-pattern>
     </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>DataOperationsServlet</servlet-name>
         <url-pattern>/DataOperationsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinancialOperationsServlet</servlet-name>
+        <url-pattern>/FinancialOperationsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
